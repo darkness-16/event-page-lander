@@ -6,10 +6,26 @@ const db = require('./database');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// Set views directory explicitly
+app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
-app.use(express.static('public'));
+
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+// Add this debugging route
+app.get('/debug', (req, res) => {
+  const fs = require('fs');
+  const viewsPath = path.join(__dirname, 'views');
+  
+  res.json({
+    __dirname: __dirname,
+    viewsPath: viewsPath,
+    viewsExists: fs.existsSync(viewsPath),
+    viewsContents: fs.existsSync(viewsPath) ? fs.readdirSync(viewsPath) : 'Directory does not exist'
+  });
+});
 
 // Home page with form
 app.get('/', (req, res) => {
