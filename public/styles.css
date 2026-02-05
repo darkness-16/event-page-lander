@@ -289,10 +289,3 @@ textarea {
     flex-direction: column;
   }
 }
-```
-
-**File 7: `.gitignore`**
-```
-node_modules/
-events.db
-.env
