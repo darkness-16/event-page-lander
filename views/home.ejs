@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Event Landing Page Generator</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🎉 Event Landing Page Generator</h1>
+      <p>Create a beautiful landing page for your event in seconds - completely free!</p>
+    </header>
+
+    <form action="/create" method="POST" class="event-form">
+      <div class="form-section">
+        <h2>Event Details</h2>
+        
+        <div class="form-group">
+          <label for="eventName">Event Name *</label>
+          <input type="text" id="eventName" name="eventName" required placeholder="e.g., TechHack 2026">
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="eventDate">Date *</label>
+            <input type="date" id="eventDate" name="eventDate" required>
+          </div>
+
+          <div class="form-group">
+            <label for="eventTime">Time</label>
+            <input type="time" id="eventTime" name="eventTime" placeholder="e.g., 9:00 AM">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="location">Location</label>
+          <input type="text" id="location" name="location" placeholder="e.g., Innovation Hub, San Francisco or Virtual">
+        </div>
+
+        <div class="form-group">
+          <label for="description">Description *</label>
+          <textarea id="description" name="description" rows="5" required placeholder="Tell people about your event..."></textarea>
+        </div>
+      </div>
+
+      <div class="form-section">
+        <h2>Organizer Information</h2>
+        
+        <div class="form-group">
+          <label for="organizerName">Organizer Name</label>
+          <input type="text" id="organizerName" name="organizerName" placeholder="Your name or organization">
+        </div>
+
+        <div class="form-group">
+          <label for="organizerEmail">Contact Email</label>
+          <input type="email" id="organizerEmail" name="organizerEmail" placeholder="contact@example.com">
+        </div>
+
+        <div class="form-group">
+          <label for="registrationLink">Registration/RSVP Link</label>
+          <input type="url" id="registrationLink" name="registrationLink" placeholder="https://...">
+        </div>
+      </div>
+
+      <div class="form-section">
+        <h2>Customize</h2>
+        
+        <div class="form-group">
+          <label for="theme">Color Theme</label>
+          <select id="theme" name="theme">
+            <option value="blue">Blue</option>
+            <option value="purple">Purple</option>
+            <option value="green">Green</option>
+            <option value="orange">Orange</option>
+            <option value="red">Red</option>
+            <option value="dark">Dark</option>
+          </select>
+        </div>
+      </div>
+
+      <button type="submit" class="submit-btn">Create My Event Page 🚀</button>
+    </form>
+  </div>
+</body>
+</html>
