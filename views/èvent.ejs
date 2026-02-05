@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= event.eventName %></title>
+  <link rel="stylesheet" href="/styles.css">
+  <style>
+    :root {
+      <% if (event.theme === 'purple') { %>
+        --primary: #8b5cf6;
+        --primary-dark: #7c3aed;
+      <% } else if (event.theme === 'green') { %>
+        --primary: #10b981;
+        --primary-dark: #059669;
+      <% } else if (event.theme === 'orange') { %>
+        --primary: #f97316;
+        --primary-dark: #ea580c;
+      <% } else if (event.theme === 'red') { %>
+        --primary: #ef4444;
+        --primary-dark: #dc2626;
+      <% } else if (event.theme === 'dark') { %>
+        --primary: #1f2937;
+        --primary-dark: #111827;
+      <% } else { %>
+        --primary: #3b82f6;
+        --primary-dark: #2563eb;
+      <% } %>
+    }
+  </style>
+</head>
+<body>
+  <div class="event-page theme-<%= event.theme %>">
+    <div class="event-hero">
+      <div class="event-container">
+        <div class="event-badge">📅 Event</div>
+        <h1 class="event-title"><%= event.eventName %></h1>
+        
+        <div class="event-meta">
+          <div class="meta-item">
+            <span class="icon">📅</span>
+            <span><%= new Date(event.eventDate).toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }) %></span>
+          </div>
+          
+          <% if (event.eventTime) { %>
+          <div class="meta-item">
+            <span class="icon">🕐</span>
+            <span><%= event.eventTime %></span>
+          </div>
+          <% } %>
+          
+          <% if (event.location) { %>
+          <div class="meta-item">
+            <span class="icon">📍</span>
+            <span><%= event.location %></span>
+          </div>
+          <% } %>
+        </div>
+
+        <% if (event.registrationLink) { %>
+        <a href="<%= event.registrationLink %>" class="cta-button" target="_blank">Register Now</a>
+        <% } %>
+      </div>
+    </div>
+
+    <div class="event-container">
+      <div class="event-content">
+        <section class="content-section">
+          <h2>About This Event</h2>
+          <p class="event-description"><%= event.description %></p>
+        </section>
+
+        <% if (event.organizerName || event.organizerEmail) { %>
+        <section class="content-section organizer-section">
+          <h2>Organizer</h2>
+          <% if (event.organizerName) { %>
+          <p><strong><%= event.organizerName %></strong></p>
+          <% } %>
+          <% if (event.organizerEmail) { %>
+          <p>Contact: <a href="mailto:<%= event.organizerEmail %>"><%= event.organizerEmail %></a></p>
+          <% } %>
+        </section>
+        <% } %>
+
+        <section class="content-section share-section">
+          <h2>Share This Event</h2>
+          <div class="share-url">
+            <input type="text" id="shareUrl" value="https://<%= host %>/event/<%= event.slug %>" readonly>
+            <button onclick="copyUrl()" class="copy-btn">Copy Link</button>
+          </div>
+          <p class="share-hint">Share this link with attendees!</p>
+        </section>
+      </div>
+    </div>
+
+    <footer class="event-footer">
+      <p>Created with <a href="/">Event Landing Page Generator</a></p>
+    </footer>
+  </div>
+
+  <script>
+    function copyUrl() {
+      const urlInput = document.getElementById('shareUrl');
+      urlInput.select();
+      document.execCommand('copy');
+      
+      const btn = document.querySelector('.copy-btn');
+      btn.textContent = 'Copied! ✓';
+      setTimeout(() => {
+        btn.textContent = 'Copy Link';
+      }, 2000);
+    }
+  </script>
+</body>
+</html>
