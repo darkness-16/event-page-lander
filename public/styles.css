@@ -1,0 +1,298 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary: #3b82f6;
+  --primary-dark: #2563eb;
+  --text: #1f2937;
+  --text-light: #6b7280;
+  --border: #e5e7eb;
+  --bg: #f9fafb;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  color: var(--text);
+  line-height: 1.6;
+  background: var(--bg);
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  color: var(--text);
+}
+
+header p {
+  font-size: 1.1rem;
+  color: var(--text-light);
+}
+
+.event-form {
+  background: white;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.form-section {
+  margin-bottom: 40px;
+}
+
+.form-section h2 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  color: var(--text);
+  border-bottom: 2px solid var(--primary);
+  padding-bottom: 10px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: var(--text);
+}
+
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="date"],
+input[type="time"],
+select,
+textarea {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+textarea {
+  resize: vertical;
+  font-family: inherit;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 16px;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.submit-btn:hover {
+  background: var(--primary-dark);
+}
+
+/* Event Page Styles */
+.event-page {
+  min-height: 100vh;
+  background: white;
+}
+
+.event-hero {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  color: white;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.event-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.event-badge {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  margin-bottom: 20px;
+}
+
+.event-title {
+  font-size: 3rem;
+  margin-bottom: 30px;
+  font-weight: 700;
+}
+
+.event-meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.meta-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.1rem;
+}
+
+.icon {
+  font-size: 1.3rem;
+}
+
+.cta-button {
+  display: inline-block;
+  background: white;
+  color: var(--primary);
+  padding: 16px 40px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.cta-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.event-content {
+  padding: 60px 20px;
+}
+
+.content-section {
+  margin-bottom: 50px;
+}
+
+.content-section h2 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  color: var(--text);
+}
+
+.event-description {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--text-light);
+  white-space: pre-wrap;
+}
+
+.organizer-section {
+  background: var(--bg);
+  padding: 30px;
+  border-radius: 12px;
+}
+
+.share-section {
+  background: var(--bg);
+  padding: 30px;
+  border-radius: 12px;
+}
+
+.share-url {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.share-url input {
+  flex: 1;
+  padding: 12px;
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.copy-btn {
+  padding: 12px 24px;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s;
+}
+
+.copy-btn:hover {
+  background: var(--primary-dark);
+}
+
+.share-hint {
+  color: var(--text-light);
+  font-size: 0.9rem;
+}
+
+.event-footer {
+  text-align: center;
+  padding: 40px 20px;
+  background: var(--bg);
+  color: var(--text-light);
+}
+
+.event-footer a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  .event-title {
+    font-size: 2rem;
+  }
+  
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+  
+  .event-meta {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .share-url {
+    flex-direction: column;
+  }
+}
+```
+
+**File 7: `.gitignore`**
+```
+node_modules/
+events.db
+.env
