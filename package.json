@@ -1,0 +1,15 @@
+{
+  "name": "event-landing-page-generator",
+  "version": "1.0.0",
+  "description": "Free event landing page generator",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "ejs": "^3.1.9",
+    "better-sqlite3": "^9.2.2",
+    "nanoid": "^3.3.7"
+  }
+}
